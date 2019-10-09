@@ -1,4 +1,4 @@
-/*module.exports = {
+module.exports = {
  "env": {
  "browser": true
  },
@@ -20,5 +20,5 @@
  "always"
 ]
  }
-};*/
+};
 // NOTE: Change "unix" to "windows" if you are on Windows

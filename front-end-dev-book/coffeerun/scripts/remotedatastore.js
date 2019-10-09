@@ -30,10 +30,26 @@
   };
 
   RemoteDataStore.prototype.remove = function (key) {
-    $.ajax(this.serverUrl + '/' + key, {
-      type: 'DELETE'
+    var url = this.serverUrl;
+    $.ajax(this.serverUrl, {
+      contentType: "application/javascript",
+      //type: 'DELETE'
+      type: "GET",
+      success: function(serverResponse)
+      {
+        serverResponse.forEach(function(info)
+        {
+          console.log(info.id);
+          if(info.emailAddress === key)
+          {
+            $.ajax(url + '/' + info.id,
+            {
+              type: 'DELETE'
+            });
+          }
     });
-  };
+};
+};
 
 
   App.RemoteDataStore = RemoteDataStore;
